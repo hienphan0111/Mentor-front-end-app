@@ -1,16 +1,21 @@
 import { useState } from 'react'
 import mentorLogo from '/mentor.png'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
+import Login from './pages/Login';
+import Home from './pages/Home';
+import Registration from './pages/Registration';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div className="text-teal-500 font-bold text-2xl">
-        Mentor app
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/registration" element={<Registration />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
