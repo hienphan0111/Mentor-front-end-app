@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-export const register = createAsyncThunk('user/register',
+export const register = createAsyncThunk(
+  'user/register',
 
   async (user) => {
     const data = {
@@ -9,13 +10,12 @@ export const register = createAsyncThunk('user/register',
       email: user.email,
       password: user.password,
       password_confirmation: user.confirmPassword,
-      client_id: import.meta.env.VITE_CLIENT_ID
-    }
-    console.log(data)
-    const res = await axios.post('http://localhost:3000/api/v1/users', data)
-    return res.data
-  }
-)
+      client_id: import.meta.env.VITE_CLIENT_ID,
+    };
+    const res = await axios.post('http://localhost:3000/api/v1/users', data);
+    return res.data;
+  },
+);
 
 export const login = createAsyncThunk('user/login', async (user) => {
   const data = {
@@ -24,17 +24,17 @@ export const login = createAsyncThunk('user/login', async (user) => {
     password: user.password,
     client_id: import.meta.env.VITE_CLIENT_ID,
     client_secret: import.meta.env.VITE_CLIENT_SECRET,
-  }
-  const res = await axios.post('http://localhost:3000/oauth/token', data)
+  };
+  const res = await axios.post('http://localhost:3000/oauth/token', data);
 
-  return res.data
+  return res.data;
 });
 
 const userLocal = (user) => localStorage.setItem('user', JSON.stringify(user));
-const initUser = JSON.parse(localStorage.getItem('user')|{}) | {
+const initUser = JSON.parse(localStorage.getItem('user') || {}) || {
   isLogin: false,
   user: '',
-  errors: ''
+  errors: '',
 };
 
 export const userSlice = createSlice({
@@ -46,10 +46,11 @@ export const userSlice = createSlice({
       .addCase(register.fulfilled, (state, action) => {
         userLocal(action.payload.user);
         return ({
-        isLogin: true,
-        user: action.payload.user,
-        errors: ''
-      })})
+          isLogin: true,
+          user: action.payload.user,
+          errors: '',
+        });
+      })
       .addCase(register.rejected, (state, action) => ({
         ...state,
         errors: action.error.message,
@@ -57,11 +58,12 @@ export const userSlice = createSlice({
       .addCase(login.fulfilled, (state, action) => {
         userLocal(action.payload);
         return ({
-        isLogin: true,
-        user: action.payload,
-        errors: ''
-      })})
-  }
+          isLogin: true,
+          user: action.payload,
+          errors: '',
+        });
+      });
+  },
 });
 
 export default userSlice.reducer;
