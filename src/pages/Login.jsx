@@ -1,4 +1,4 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -25,7 +25,7 @@ const Login = () => {
           validationSchema={LoginSchema}
           onSubmit={(values) => loginHandle(values)}
         >
-          {({ errors, touch }) => (
+          {() => (
             <Form className='flex flex-col gap-2'>
               <div className='flex flex-col gap-3'>
                 <Field name='email' type='email' placeholder='Email' />
@@ -39,7 +39,7 @@ const Login = () => {
                   href='/register'
                   className='bg-emerald-700 text-white hover:bg-emerald-500 rounded-md py-2 px-2'
                 >
-                  Don't have account? Register
+                  Do not have account? Register
                 </Link>
               </div>
             </Form>
