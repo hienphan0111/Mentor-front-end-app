@@ -1,6 +1,4 @@
-/* eslint import/no-extraneous-dependencies: ["error", {"peerDependencies": true}] */
-
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addreserve } from '../redux/reservation/reservationSlice';
 
