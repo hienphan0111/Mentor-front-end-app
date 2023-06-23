@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addreserve } from '../redux/reservation/reservationSlice';
 
 const initials = {
@@ -9,9 +9,7 @@ const initials = {
 
 function Form() {
   const [state, setState] = useState(initials);
-  const Array = useSelector((state) => state.reservation.reserves);
   const dispatch = useDispatch();
-  console.log('check reserves:', Array);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
