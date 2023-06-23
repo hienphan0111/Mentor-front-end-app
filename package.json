@@ -16,9 +16,6 @@
     "axios": "^1.4.0",
     "formik": "^2.4.2",
     "framer-motion": "^10.12.16",
-    "postcss": "^8.4.24",
-    "postcss-markdown": "^1.2.0",
-    "postcss-scss": "^4.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.0",
@@ -32,7 +29,7 @@
     "@types/react-dom": "^18.0.11",
     "autoprefixer": "^10.4.14",
     "babel-preset-react-app": "^3.1.2",
-    "eslint": "8.2.0",
+    "eslint": "7.2.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "2.25.3",
     "eslint-plugin-jsx-a11y": "6.5.1",
@@ -44,6 +41,9 @@
     "stylelint-config-standard": "^33.0.0",
     "stylelint-csstree-validator": "^1.9.0",
     "stylelint-scss": "^3.21.0",
+    "postcss": "^8.4.24",
+    "postcss-markdown": "^1.2.0",
+    "postcss-scss": "^4.0.6",
     "tailwindcss": "^3.3.2",
     "vite": "^4.3.9"
   }
