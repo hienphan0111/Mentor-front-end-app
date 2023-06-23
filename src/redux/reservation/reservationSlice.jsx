@@ -1,8 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-
-const access_token = "iqZBRbTqzOgziND-fDOWcUStBjFr7TbvJgIeIm15M_U"
+const accesstoken = 'iqZBRbTqzOgziND-fDOWcUStBjFr7TbvJgIeIm15M_U';
 const url = 'http://localhost:3000/api/v1/reservations';
 const initialState = {
   reserves: [],
@@ -10,10 +9,9 @@ const initialState = {
 };
 
 export const fetchreservation = createAsyncThunk('reserves/fetchreserves', async () => {
- const res = await axios.get(url , { headers: {"Authorization" : `Bearer ${access_token}`} 
-})
-const reserves = res.data;
-return reserves;
+  const res = await axios.get(url, { headers: { Authorization: `Bearer ${accesstoken}` } });
+  const reserves = res.data;
+  return reserves;
 });
 
 export const addreserve = createAsyncThunk(
@@ -42,17 +40,18 @@ export const reserveSlice = createSlice({
       newState.reserves = action.payload;
       return newState;
     });
- 
-    builder.addCase(addreserve.fulfilled, (state, action) => {
-        state.reserves.push(action.payload);
-      });
-      builder.addCase(removereservation.fulfilled, (state, action) => {
-        const newState = { ...state };
-        newState.reservations = state.reservations.filter((reservation) => reservation.id !== action.payload);
-        return newState;
-      });
 
-    },
+    builder.addCase(addreserve.fulfilled, (state, action) => {
+      state.reserves.push(action.payload);
+    });
+    builder.addCase(removereservation.fulfilled, (state, action) => {
+      const newState = { ...state };
+      newState.reservations = state.reservations.filter(
+        (reservation) => reservation.id !== action.payload,
+      );
+      return newState;
+    });
+  },
 });
 
 export default reserveSlice.reducer;

@@ -122,16 +122,6 @@
   display: block;
 }
 
-.react-datetime-picker__calendar .rdtPicker td.rdtActive,
-.react-datetime-picker__calendar .rdtPicker td.rdtActive:hover {
-  background-color: #ccc !important;
-}
-
-.react-datetime-picker__clock .rdtPicker td.rdtActive,
-.react-datetime-picker__clock .rdtPicker td.rdtActive:hover {
-  background-color: #ccc !important;
-}
-
 .react-datetime-picker__clock {
   position: absolute;
   z-index: 9999;
