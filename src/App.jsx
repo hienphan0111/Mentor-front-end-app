@@ -1,17 +1,19 @@
-import './App.css'
-import Form from './components/reservation_form'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import './App.css';
+import Login from './pages/Login';
+import Home from './pages/Home';
+import Registration from './pages/Registration';
 
 function App() {
-
   return (
-    <>
-      <div className="text-teal-500 font-bold text-2xl">
-       <img className="logoImage" src="./public/mentor.png" alt=" "/>
-        Mentor app
-        <Form />
-      </div>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/registration" element={<Registration />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
