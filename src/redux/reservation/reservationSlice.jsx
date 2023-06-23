@@ -16,20 +16,26 @@ const reserves = res.data;
 return reserves;
 });
 
-export const addreserve = createAsyncThunk('reserves/addreserve', async (reserve) => {
+export const addreserve = createAsyncThunk(
+  'reserves/addreserve',
+  async (reserve) => {
     await axios.post(url, reserve);
     return reserve;
-  });
+  },
+);
 
-  export const removereservation = createAsyncThunk('books/removebook', async (id) => {
+export const removereservation = createAsyncThunk(
+  'books/removebook',
+  async (id) => {
     await axios.delete(`${url}/${id}`);
     return id;
-  });
+  },
+);
 
 export const reserveSlice = createSlice({
   name: 'reserve',
   initialState,
-  reducers: { },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchreservation.fulfilled, (state, action) => {
       const newState = { ...state };

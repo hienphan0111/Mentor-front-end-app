@@ -9,7 +9,7 @@ const initials = {
   message: '',
 };
 
-const Form = () => {
+function Form() {
   const [state, setState] = useState(initials);
   const Array = useSelector((state) => state.reserveReducer.reserves);
   console.log("check data:", Array)
@@ -21,7 +21,7 @@ const Form = () => {
 
   const handleChange = (name, value) => {
     setState((prev) => ({
-      ...prev, [name]: value
+      ...prev, [name]: value,
     }));
   };
 
