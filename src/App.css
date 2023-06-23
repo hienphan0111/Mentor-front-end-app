@@ -14,7 +14,7 @@
 .Line {
   width: 100%;
   height: 2px;
-  background-color: #4CAF50;
+  background-color: #4caf50;
   margin-bottom: 20px;
 }
 
@@ -31,7 +31,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid ;
+  border: 1px solid;
 }
 
 .form_item input[type="text"] {
@@ -46,9 +46,7 @@
 .form_item input[type="text"]:focus {
   outline: none;
   border-color: #007bff;
-
 }
-
 
 .form_button:hover {
   cursor: pointer;
@@ -56,7 +54,7 @@
 
 #datetime {
   margin: 10px;
-} 
+}
 
 
 
@@ -72,7 +70,6 @@
 
 .react-datetime-picker__wrapper {
   display: flex;
-
 }
 
 .react-datetime-picker__inputGroup {
@@ -90,10 +87,11 @@
 .react-datetime-picker__calendar {
   position: absolute;
   z-index: 9999;
-  background-color:  #4CAF50;
+  background-color: #4caf50;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(166, 160, 160, 0.2);
+  display: none;
 }
 
 .react-datetime-picker__calendar .rdtPicker {
@@ -113,8 +111,17 @@
   background-color: #f0f0f0;
 }
 
+.react-datetime-picker--open .react-datetime-picker__calendar {
+  display: block;
+}
+
 .react-datetime-picker__calendar .rdtPicker td.rdtActive,
 .react-datetime-picker__calendar .rdtPicker td.rdtActive:hover {
+  background-color: #ccc !important;
+}
+
+.react-datetime-picker__clock .rdtPicker td.rdtActive,
+.react-datetime-picker__clock .rdtPicker td.rdtActive:hover {
   background-color: #ccc !important;
 }
 
@@ -124,7 +131,7 @@
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .react-datetime-picker__clock .rdtPicker {
@@ -139,23 +146,3 @@
 .react-datetime-picker__clock .rdtPicker th {
   padding: 4px;
 }
-
-.react-datetime-picker__clock .rdtPicker td.rdtActive,
-.react-datetime-picker__clock .rdtPicker td.rdtActive:hover {
-  background-color: #ccc !important;
-}
-
-.react-datetime-picker__calendar {
-  display: none;
-}
-
-.react-datetime-picker--open .react-datetime-picker__calendar {
-  display: block;
-}
-
-
-
-
-
-
-
