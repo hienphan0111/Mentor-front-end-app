@@ -3,6 +3,7 @@ const initialState = {
   error: null,
 };
 
+// eslint-disable-next-line default-param-last
 const mentorReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'CREATE_MENTOR_SUCCESS':
