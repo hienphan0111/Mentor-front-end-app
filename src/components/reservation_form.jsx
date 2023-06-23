@@ -1,6 +1,7 @@
-import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch} from 'react-redux';
 import { addreserve } from '../redux/reservation/reservationSlice';
+import { fetchreservation } from '../redux/reservation/reservationSlice';
 
 const initials = {
   time: '',
@@ -9,9 +10,12 @@ const initials = {
 
 const Form = () => {
   const [state, setState] = useState(initials);
-  const Array = useSelector((state) => state.reservation.reserves);
+  const { Array }= useSelector((state) => state.reservation);
   const dispatch = useDispatch();
-  console.log("check reserves:", Array)
+  useEffect(() => {
+    dispatch(fetchreservation());
+  }, [dispatch]);
+  console.log("check data:", Array)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,7 +25,7 @@ const Form = () => {
   };
 
   const handleSubmit = () => {
-    dispatch(addreserve({ ...state}));
+    dispatch(addreserve());
     setState(initials);
   };
 

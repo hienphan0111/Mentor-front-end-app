@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+
+const access_token = "y4lZQbmxKViBcPOdS5MCblVMyPX6mFqznPMrh6xF7pA"
 const url = 'http://localhost:3000/api/v1/reservations';
 const initialState = {
   reserves: [],
@@ -8,13 +10,11 @@ const initialState = {
 };
 
 export const fetchreservation = createAsyncThunk('reserves/fetchreserves', async () => {
-  const res = await axios.get(url);
-  const response = res.data;
-  const reserves = Object.keys(response).map((key) => ({
-    reservations_id: key,
-    ...response[key][0],
-  }));
-  return reserves;
+ const res = await axios.get(url , { headers: {"Authorization" : `Bearer ${access_token}`} 
+})
+const reserves = res.data;
+console.log("fetching my reservation:", res.data)
+return reserves;
 });
 
 export const addreserve = createAsyncThunk('reserves/addreserve', async (reserve) => {
@@ -32,11 +32,18 @@ export const reserveSlice = createSlice({
   initialState,
   reducers: { },
   extraReducers: (builder) => {
-    builder.addCase(fetchreservation.fulfilled, (state, action) => {
-      const newState = { ...state };
-      newState.reservations = action.payload;
-      return newState;
+    builder.addCase(fetchreservation.fulfilled, (state, { payload }) => {
+      const newReserve = payload.map(
+        ({ time, message, mentor_id, user_id }) => ({
+          time,
+          message,
+          mentor_id,
+          user_id,
+        })
+      );
+      return { ...state, reserves: newReserve };
     });
+ 
     builder.addCase(addreserve.fulfilled, (state, action) => {
         state.reserves.push(action.payload);
       });
@@ -45,7 +52,8 @@ export const reserveSlice = createSlice({
         newState.reservations = state.reservations.filter((reservation) => reservation.id !== action.payload);
         return newState;
       });
-  },
+
+    },
 });
 
 export default reserveSlice.reducer;

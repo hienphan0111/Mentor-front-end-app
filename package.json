@@ -13,6 +13,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
     "cors": "^2.8.5",
+    "esbuild-darwin-arm64": "^0.15.18",
     "framer-motion": "^10.12.16",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
