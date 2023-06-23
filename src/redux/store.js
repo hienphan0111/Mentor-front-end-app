@@ -5,6 +5,6 @@ import reserveReducer from './reservation/reservationSlice';
 export default configureStore({
   reducer: {
     user: userReducer,
-    reservation: reserveReducer
+    reservation: reserveReducer,
   },
 });
