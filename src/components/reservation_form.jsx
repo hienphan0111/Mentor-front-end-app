@@ -10,12 +10,13 @@ const initials = {
 
 const Form = () => {
   const [state, setState] = useState(initials);
-  const { Array }= useSelector((state) => state.reservation);
+  const Array = useSelector((state) => state.reserveReducer.reserves);
+  console.log("check data:", Array)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchreservation());
   }, [dispatch]);
-  console.log("check data:", Array)
+ 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,7 +26,7 @@ const Form = () => {
   };
 
   const handleSubmit = () => {
-    dispatch(addreserve());
+    dispatch(fetchreservation());
     setState(initials);
   };
 
