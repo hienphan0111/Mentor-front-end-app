@@ -7,21 +7,21 @@ const initials = {
   message: '',
 };
 
-const Form = () => {
+function Form() {
   const [state, setState] = useState(initials);
   const Array = useSelector((state) => state.reservation.reserves);
   const dispatch = useDispatch();
-  console.log("check reserves:", Array)
+  console.log('check reserves:', Array);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setState((prev) => ({
-      ...prev, [name]: value
+      ...prev, [name]: value,
     }));
   };
 
   const handleSubmit = () => {
-    dispatch(addreserve({ ...state}));
+    dispatch(addreserve({ ...state }));
     setState(initials);
   };
 
@@ -38,5 +38,5 @@ const Form = () => {
       </form>
     </div>
   );
-};
+}
 export default Form;
