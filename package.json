@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@babel/eslint-parser": "^7.22.5",
     "@reduxjs/toolkit": "^1.9.5",
     "@vitejs/plugin-react": "^4.0.0",
     "axios": "^1.4.0",
@@ -24,12 +23,13 @@
     "yup": "^1.2.0"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.22.5",
     "@babel/plugin-syntax-jsx": "^7.22.5",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "autoprefixer": "^10.4.14",
     "babel-preset-react-app": "^3.1.2",
-    "eslint": "7.2.0",
+    "eslint": "8.2.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "2.25.3",
     "eslint-plugin-jsx-a11y": "6.5.1",
