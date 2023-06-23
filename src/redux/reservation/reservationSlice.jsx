@@ -13,7 +13,6 @@ export const fetchreservation = createAsyncThunk('reserves/fetchreserves', async
  const res = await axios.get(url , { headers: {"Authorization" : `Bearer ${access_token}`} 
 })
 const reserves = res.data;
-console.log("fetching my reservation:", res.data)
 return reserves;
 });
 
