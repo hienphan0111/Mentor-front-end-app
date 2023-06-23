@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 
-const access_token = "y4lZQbmxKViBcPOdS5MCblVMyPX6mFqznPMrh6xF7pA"
+const access_token = "iqZBRbTqzOgziND-fDOWcUStBjFr7TbvJgIeIm15M_U"
 const url = 'http://localhost:3000/api/v1/reservations';
 const initialState = {
   reserves: [],
@@ -28,20 +28,14 @@ export const addreserve = createAsyncThunk('reserves/addreserve', async (reserve
   });
 
 export const reserveSlice = createSlice({
-  name: 'reserveform',
+  name: 'reserve',
   initialState,
   reducers: { },
   extraReducers: (builder) => {
-    builder.addCase(fetchreservation.fulfilled, (state, { payload }) => {
-      const newReserve = payload.map(
-        ({ time, message, mentor_id, user_id }) => ({
-          time,
-          message,
-          mentor_id,
-          user_id,
-        })
-      );
-      return { ...state, reserves: newReserve };
+    builder.addCase(fetchreservation.fulfilled, (state, action) => {
+      const newState = { ...state };
+      newState.reserves = action.payload;
+      return newState;
     });
  
     builder.addCase(addreserve.fulfilled, (state, action) => {
