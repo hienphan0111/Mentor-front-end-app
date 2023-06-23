@@ -7,41 +7,155 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  margin-top: 50px;
 }
 
 .Line {
   width: 100%;
   height: 2px;
-  background-color: black;
+  background-color: #4CAF50;
   margin-bottom: 20px;
 }
 
 .Title {
   font-size: 24px;
   font-weight: bold;
+  text-align: center;
   margin-bottom: 20px;
 }
 
 .Form {
+  width: 30vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  border: 1px solid ;
 }
 
-.form_item {
-  width: 100%;
+.form_item input[type="text"] {
   padding: 10px;
-  margin-bottom: 20px;
+  font-size: 16px;
+  width: 24vw;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  border: none;
-  border-bottom: 2px solid black;
 }
 
-.form_button {
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  background-color: black;
-  color: green;
+.form_item input[type="text"]:focus {
+  outline: none;
+  border-color: #007bff;
+
+}
+
+
+.form_button:hover {
   cursor: pointer;
 }
+
+#datetime {
+  margin: 10px;
+} 
+
+
+
+/* datetime picker  */
+.react-datetime-picker {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.react-datetime-picker__wrapper {
+  display: flex;
+
+}
+
+.react-datetime-picker__inputGroup {
+  display: flex;
+  width: 20vw;
+  align-items: center;
+}
+
+.react-datetime-picker__inputGroup__input {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+}
+
+.react-datetime-picker__calendar {
+  position: absolute;
+  z-index: 9999;
+  background-color:  #4CAF50;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.react-datetime-picker__calendar .rdtPicker {
+  width: auto !important;
+}
+
+.react-datetime-picker__calendar .rdtPicker table {
+  width: 100%;
+}
+
+.react-datetime-picker__calendar .rdtPicker td,
+.react-datetime-picker__calendar .rdtPicker th {
+  padding: 4px;
+}
+
+.react-datetime-picker__calendar .rdtPicker td.rdtToday {
+  background-color: #f0f0f0;
+}
+
+.react-datetime-picker__calendar .rdtPicker td.rdtActive,
+.react-datetime-picker__calendar .rdtPicker td.rdtActive:hover {
+  background-color: #ccc !important;
+}
+
+.react-datetime-picker__clock {
+  position: absolute;
+  z-index: 9999;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.react-datetime-picker__clock .rdtPicker {
+  width: auto !important;
+}
+
+.react-datetime-picker__clock .rdtPicker table {
+  width: 100%;
+}
+
+.react-datetime-picker__clock .rdtPicker td,
+.react-datetime-picker__clock .rdtPicker th {
+  padding: 4px;
+}
+
+.react-datetime-picker__clock .rdtPicker td.rdtActive,
+.react-datetime-picker__clock .rdtPicker td.rdtActive:hover {
+  background-color: #ccc !important;
+}
+
+.react-datetime-picker__calendar {
+  display: none;
+}
+
+.react-datetime-picker--open .react-datetime-picker__calendar {
+  display: block;
+}
+
+
+
+
+
+
+
