@@ -31,7 +31,7 @@ export const login = createAsyncThunk('user/login', async (user) => {
 });
 
 const userLocal = (user) => localStorage.setItem('user', JSON.stringify(user));
-const initUser = JSON.parse(localStorage.getItem('user') || {}) || {
+const initUser = JSON.stringify(localStorage.getItem('user') || {}) || {
   isLogin: false,
   user: '',
   errors: '',
