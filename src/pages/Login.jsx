@@ -1,7 +1,7 @@
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, Navigate } from 'react-router-dom';
 import { login } from '../redux/userSlice/userSlice';
 
 const LoginSchema = Yup.object().shape({
@@ -12,8 +12,15 @@ const LoginSchema = Yup.object().shape({
 function Login() {
   const dispatch = useDispatch();
 
+  const { isLogin } = useSelector((state) => state.user);
+
+  if (isLogin) {
+    return <Navigate replace to="/main" />;
+  }
+
   const loginHandle = (values) => {
     dispatch(login(values));
+    return <Navigate replace to="/main" />;
   };
 
   return (
