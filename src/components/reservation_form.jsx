@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import DateTimePicker from 'react-datetime-picker';
-import { addreserve, fetchreservation } from '../redux/reservation/reservationSlice';
+import { addreserve } from '../redux/reservation/reservationSlice';
 
 const initials = {
   datetime: '',
@@ -11,9 +11,6 @@ const initials = {
 function Form() {
   const [state, setState] = useState(initials);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchreservation());
-  }, [dispatch]);
 
   const handleChange = (name, value) => {
     setState((prev) => ({
