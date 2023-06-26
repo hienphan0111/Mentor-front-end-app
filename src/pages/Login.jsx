@@ -1,8 +1,9 @@
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { login } from '../redux/userSlice/userSlice';
+import { useSelector } from 'react-redux';
 
 const LoginSchema = Yup.object().shape({
   email: Yup.string().email().required('Email is required'),
@@ -11,9 +12,17 @@ const LoginSchema = Yup.object().shape({
 
 function Login() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { isLogin } = useSelector((state) => state.user)
+
+  if (isLogin) {
+    return <Navigate replace to="/main" />
+  }
 
   const loginHandle = (values) => {
     dispatch(login(values));
+    return <Navigate replace to="/main" />
   };
 
   return (

@@ -2,7 +2,7 @@ import {
   Formik, Form, Field, ErrorMessage,
 } from 'formik';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { register } from '../redux/userSlice/userSlice';
 
@@ -25,6 +25,7 @@ function Registration() {
   const dispatch = useDispatch();
   const signUp = (values) => {
     dispatch(register(values));
+    return <Navigate replace to="/main" />
   };
 
   return (
