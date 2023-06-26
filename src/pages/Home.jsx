@@ -1,7 +1,7 @@
 function Home() {
   return (
-    <div>
-      <h1>Home page</h1>
+    <div className="w-full">
+      <h1>Mentors page</h1>
     </div>
   );
 }
