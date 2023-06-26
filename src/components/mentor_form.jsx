@@ -48,9 +48,9 @@ function MentorForm() {
           <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} />
         </label>
         <br />
-        <label htmlFor="bio">
+        <label htmlFor="bio" className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
           Bio:
-          <textarea id="bio" value={bio} onChange={(e) => setBio(e.target.value)} />
+          <textarea id="bio" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={bio} onChange={(e) => setBio(e.target.value)} />
         </label>
         <br />
         <label htmlFor="photo">
