@@ -38,32 +38,31 @@ function MentorForm() {
       )}
       {mentor && (
       <p>
-        Mentor created:
         {mentor.name}
       </p>
       )}
       <form onSubmit={handleSubmit}>
         <label htmlFor="name" className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-          Name:
+          Name
           <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} />
         </label>
         <br />
         <label htmlFor="bio" className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-          Bio:
+          Bio
           <textarea id="bio" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={bio} onChange={(e) => setBio(e.target.value)} />
         </label>
         <br />
         <label htmlFor="photo" className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-          Photo:
+          Photo
           <input type="file" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="photo" value={photo} onChange={(e) => setPhoto(e.target.value)} />
         </label>
         <br />
         <label htmlFor="contact" className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
-          Contact:
+          Contact
           <input type="text" id="contact" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={contact} onChange={(e) => setContact(e.target.value)} />
         </label>
         <br />
-        <button type="submit">Submit</button>
+        <button type="submit" className="shadow bg-purple-500 hover:bg-purple-400 w-full focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">create Mentor</button>
       </form>
     </div>
   );
