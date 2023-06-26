@@ -24,22 +24,6 @@ ProtectRoute.propTypes = {
   children: PropTypes.instanceOf(ReactDOM).isRequired,
 };
 
-
-import Welcome from './pages/Welcome';
-import Navbar from './components/Navbar';
-
-function ProtectRoute({ isLoggedIn, children }) {
-  if (!isLoggedIn) {
-    return <Navigate to="/login" replace />;
-  }
-  return children;
-}
-
-ProtectRoute.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired,
-  children: PropTypes.instanceOf(ReactDOM).isRequired,
-};
-
 function App() {
   const { isLogin } = useSelector((state) => state.user);
 
@@ -49,6 +33,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/Add-mentor" element={<MentorForm />} />
           <Route path="/registration" element={<Registration />} />
         </Routes>
         <Navbar />
