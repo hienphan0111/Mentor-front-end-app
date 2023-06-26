@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import Login from './pages/Login';
 import Home from './pages/Home';
 import Registration from './pages/Registration';
+import MentorForm from './components/mentor_form';
 import Welcome from './pages/Welcome';
 import Navbar from './components/Navbar';
 
@@ -32,6 +33,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/Add-mentor" element={<MentorForm />} />
           <Route path="/registration" element={<Registration />} />
         </Routes>
         <Navbar />
