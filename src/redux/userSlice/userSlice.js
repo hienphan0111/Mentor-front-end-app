@@ -53,7 +53,6 @@ export const login = createAsyncThunk('user/login', async (user) => {
 });
 
 export const logout = createAsyncThunk('user/logout', async (arg, { getState }) => {
-  console.log(getState().user);
   const data = {
     token: getState().user.token,
     client_id: import.meta.env.VITE_CLIENT_ID,
