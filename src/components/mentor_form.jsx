@@ -28,8 +28,8 @@ function MentorForm() {
   };
 
   return (
-    <div>
-      <h2>Create Mentor</h2>
+    <div className="mentor-form-container w-full h-screen bg-slate-100">
+      <h1 className="block text-gray-600 font-bold mb-1 md:mb-0 pr-4">Create Mentor</h1>
       {error && (
       <p>
         Error:
@@ -38,32 +38,31 @@ function MentorForm() {
       )}
       {mentor && (
       <p>
-        Mentor created:
         {mentor.name}
       </p>
       )}
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">
-          Name:
-          <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} />
+      <form onSubmit={handleSubmit} className="mentor-form flex flex-col justify-center items-center">
+        <label htmlFor="name" className="w-full text-center block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4 max-w-[400px]">
+          Name
+          <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} />
         </label>
         <br />
-        <label htmlFor="bio">
-          Bio:
-          <textarea id="bio" value={bio} onChange={(e) => setBio(e.target.value)} />
+        <label htmlFor="bio" className="w-full text-center block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4 max-w-[400px]">
+          Bio
+          <textarea id="bio" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={bio} onChange={(e) => setBio(e.target.value)} />
         </label>
         <br />
-        <label htmlFor="photo">
-          Photo:
-          <input type="file" id="photo" value={photo} onChange={(e) => setPhoto(e.target.value)} />
+        <label htmlFor="photo" className="w-full block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4 max-w-[400px]">
+          Photo
+          <input type="file" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="photo" value={photo} onChange={(e) => setPhoto(e.target.value)} />
         </label>
         <br />
-        <label htmlFor="contact">
-          Contact:
-          <input type="text" id="contact" value={contact} onChange={(e) => setContact(e.target.value)} />
+        <label htmlFor="contact" className="w-full block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4 max-w-[400px]">
+          Contact
+          <input type="text" id="contact" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={contact} onChange={(e) => setContact(e.target.value)} />
         </label>
         <br />
-        <button type="submit">Submit</button>
+        <button type="submit" className="w-full max-w-[400px] shadow bg-purple-500 hover:bg-purple-400 w-full focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">create Mentor</button>
       </form>
     </div>
   );

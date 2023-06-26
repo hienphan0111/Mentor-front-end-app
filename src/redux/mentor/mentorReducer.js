@@ -18,6 +18,18 @@ const mentorReducer = (state = initialState, action) => {
         mentor: null,
         error: action.payload,
       };
+    case 'FETCH_MENTOR_SUCCESS':
+      return {
+        ...state,
+        mentor: action.payload,
+        error: null,
+      };
+    case 'FETCH_MENTOR_FAILURE':
+      return {
+        ...state,
+        mentor: null,
+        error: action.payload,
+      };
     default:
       return state;
   }
