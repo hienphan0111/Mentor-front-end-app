@@ -1,11 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux';
-
-const Detail = () => {
+function Detail() {
   return (
-    <div>
-      
-    </div>
-  )
+    <div />
+  );
 }
 
-export default Detail
+export default Detail;

@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 import logo from '../../public/mentor.png';
 import { logout } from '../redux/userSlice/userSlice';
 
-const Navbar = () => {
+function Navbar() {
   const { user, isLogin } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const logoutHandle = () => {
     dispatch(logout());
-  }
+  };
 
   return (
-    <>
-    {
+    <div>
+      {
       isLogin && (
         <nav className="flex flex-col justify-between h-screen p-5 border border-r-slate-300 shadow-md min-w-fit">
           <div>
@@ -30,7 +30,7 @@ const Navbar = () => {
               {
                 user.isAdmin && (
                   <>
-                    
+
                     <li className="hover:bg-lime-500 w-full hover:text-white py-1 px-2">
                       <Link to="/reservations">Add mentor</Link>
                     </li>
@@ -51,8 +51,8 @@ const Navbar = () => {
         </nav>
       )
     }
-    </>
-  )
+    </div>
+  );
 }
 
-export default Navbar
+export default Navbar;

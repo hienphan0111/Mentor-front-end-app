@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import bgMentor from '../assets/image/bg-mentor.png';
 import bg2 from '../assets/image/bg-2.png';
 
 function Welcome() {

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const API_URL ='http://localhost:3000';
+const API_URL = 'http://localhost:3000';
 
 export const register = createAsyncThunk(
   'user/register',
@@ -39,29 +39,30 @@ export const login = createAsyncThunk('user/login', async (user) => {
   const resUser = await axios.get(
     `${API_URL}/api/v1/users/user`,
     {
-      headers: { Authorization: `Bearer ${token}`}
-    })
+      headers: { Authorization: `Bearer ${token}` },
+    },
+  );
 
   const userInfo = {
     id: resUser.data.user.id,
     name: resUser.data.user.name,
     email: resUser.data.user.email,
     token,
-  }
+  };
   return userInfo;
 });
 
-export const logout = createAsyncThunk( 'user/logout', async ( arg, { getState }) => {
-  console.log(getState().user)
+export const logout = createAsyncThunk('user/logout', async (arg, { getState }) => {
+  console.log(getState().user);
   const data = {
     token: getState().user.token,
     client_id: import.meta.env.VITE_CLIENT_ID,
     client_secret: import.meta.env.VITE_CLIENT_SECRET,
-  }
+  };
 
   const res = await axios.post(`${API_URL}/oauth/revoke`, data);
   return res;
-})
+});
 
 const userLocal = (user) => localStorage.setItem('user', JSON.stringify(user));
 const initUser = JSON.parse(localStorage.getItem('user')) || {
@@ -81,7 +82,7 @@ export const userSlice = createSlice({
           isLogin: true,
           user: action.payload,
           errors: '',
-        }
+        };
         userLocal(newState);
         return newState;
       })
@@ -94,7 +95,7 @@ export const userSlice = createSlice({
           isLogin: true,
           user: action.payload,
           errors: '',
-        }
+        };
         userLocal(newState);
         return newState;
       })
@@ -107,10 +108,10 @@ export const userSlice = createSlice({
           isLogin: false,
           user: '',
           error: '',
-        }
+        };
         userLocal(newState);
         return newState;
-      })
+      });
   },
 });
 

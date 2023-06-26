@@ -1,5 +1,3 @@
-import DetailMentor from './DetailMentor';
-
 function Home() {
   return (
     <div className="w-full">
