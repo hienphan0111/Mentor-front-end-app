@@ -58,9 +58,9 @@ function MentorForm() {
           <input type="file" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="photo" value={photo} onChange={(e) => setPhoto(e.target.value)} />
         </label>
         <br />
-        <label htmlFor="contact">
+        <label htmlFor="contact" className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
           Contact:
-          <input type="text" id="contact" value={contact} onChange={(e) => setContact(e.target.value)} />
+          <input type="text" id="contact" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={contact} onChange={(e) => setContact(e.target.value)} />
         </label>
         <br />
         <button type="submit">Submit</button>
