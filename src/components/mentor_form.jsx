@@ -53,9 +53,9 @@ function MentorForm() {
           <textarea id="bio" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" value={bio} onChange={(e) => setBio(e.target.value)} />
         </label>
         <br />
-        <label htmlFor="photo">
+        <label htmlFor="photo" className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4">
           Photo:
-          <input type="file" id="photo" value={photo} onChange={(e) => setPhoto(e.target.value)} />
+          <input type="file" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="photo" value={photo} onChange={(e) => setPhoto(e.target.value)} />
         </label>
         <br />
         <label htmlFor="contact">
