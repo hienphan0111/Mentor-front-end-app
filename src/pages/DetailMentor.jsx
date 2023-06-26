@@ -23,7 +23,6 @@ function DetailMentor({ id }) {
         { headers: { Authorization: `Bearer ${user.token}` } },
       );
       setMentor(res.data);
-      console.log(res.data);
     };
     fetData();
   }, [id]);
