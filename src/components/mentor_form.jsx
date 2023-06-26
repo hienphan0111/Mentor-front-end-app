@@ -28,8 +28,8 @@ function MentorForm() {
   };
 
   return (
-    <div className="mentor-form-container w-full h-screen">
-      <h1>Create Mentor</h1>
+    <div className="mentor-form-container w-full h-screen bg-slate-100">
+      <h1 className="block text-gray-600 font-bold mb-1 md:mb-0 pr-4">Create Mentor</h1>
       {error && (
       <p>
         Error:
