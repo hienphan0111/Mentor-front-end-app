@@ -1,18 +1,23 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const accesstoken = 'iqZBRbTqzOgziND-fDOWcUStBjFr7TbvJgIeIm15M_U';
 const url = 'http://localhost:3000/api/v1/reservations';
 const initialState = {
   reserves: [],
   status: 'idle',
 };
 
-export const fetchreservation = createAsyncThunk('reserves/fetchreserves', async () => {
-  const res = await axios.get(url, { headers: { Authorization: `Bearer ${accesstoken}` } });
-  const reserves = res.data;
-  return reserves;
-});
+export const fetchreservation = createAsyncThunk(
+  'reserves/fetchreserves',
+  async (arg, { getState }) => {
+    const accesstoken = getState().user.user.token;
+    const res = await axios.get(url, {
+      headers: { Authorization: `Bearer ${accesstoken}` },
+    });
+    const reserves = res.data;
+    return reserves;
+  },
+);
 
 export const addreserve = createAsyncThunk(
   'reserves/addreserve',

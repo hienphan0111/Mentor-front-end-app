@@ -11,6 +11,8 @@ import Registration from './pages/Registration';
 import MentorForm from './components/mentor_form';
 import Welcome from './pages/Welcome';
 import Navbar from './components/Navbar';
+import MyReservations from './pages/MyReservations';
+import AddExpertise from './pages/AddExpertise';
 
 function ProtectRoute({ isLoggedIn, children }) {
   if (!isLoggedIn) {
@@ -43,6 +45,22 @@ function App() {
             element={(
               <ProtectRoute isLoggedIn={isLogin}>
                 <Home />
+              </ProtectRoute>
+            )}
+          />
+          <Route
+            path="/my-reservations"
+            element={(
+              <ProtectRoute isLoggedIn={isLogin}>
+                <MyReservations />
+              </ProtectRoute>
+            )}
+          />
+          <Route
+            path="/add-expertise"
+            element={(
+              <ProtectRoute isLoggedIn={isLogin}>
+                <AddExpertise />
               </ProtectRoute>
             )}
           />

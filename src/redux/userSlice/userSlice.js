@@ -47,6 +47,7 @@ export const login = createAsyncThunk('user/login', async (user) => {
     id: resUser.data.user.id,
     name: resUser.data.user.name,
     email: resUser.data.user.email,
+    isAdmin: resUser.data.user.isAdmin,
     token,
   };
   return userInfo;
@@ -54,13 +55,13 @@ export const login = createAsyncThunk('user/login', async (user) => {
 
 export const logout = createAsyncThunk('user/logout', async (arg, { getState }) => {
   const data = {
-    token: getState().user.token,
+    token: getState().user.user.token,
     client_id: import.meta.env.VITE_CLIENT_ID,
     client_secret: import.meta.env.VITE_CLIENT_SECRET,
   };
 
-  const res = await axios.post(`${API_URL}/oauth/revoke`, data);
-  return res;
+  await axios.post(`${API_URL}/oauth/revoke`, data);
+  // return res;
 });
 
 const userLocal = (user) => localStorage.setItem('user', JSON.stringify(user));
