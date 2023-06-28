@@ -52,7 +52,7 @@ This App allow users book reservations with their mentors.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-To see the demo version, you can <a href=""> Click here </a>
+To see the demo version, you can <a href=""> - [Clik here](https://mentor-app.onrender.com/) </a>
 
 <!-- GETTING STARTED -->
 
@@ -114,6 +114,7 @@ Example command:
 ### Deployment
 
 The project was deployed which you can access this link: 
+- [Live Demo Link](https://budget-app-l98w.onrender.com)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -131,7 +132,7 @@ The project was deployed which you can access this link:
 
 - GitHub: [@githubhandle](https://github.com/hakichris)
 - Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/hakichris)
+- LinkedIn: [@LinkedInhandle](https://linkedin.com/in/hakichris)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
