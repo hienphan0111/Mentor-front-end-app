@@ -1,10 +1,10 @@
 import {
   Form, Field, Formik, ErrorMessage,
 } from 'formik';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
-import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { createExpertise, deleteExpertise, fetchExpertises } from '../redux/expertise/expertiseSlice';
 
 const expertiseSchema = Yup.object().shape({
   name: Yup.string().min(2, 'Name too short').required('Name is required'),
@@ -15,31 +15,28 @@ const expertiseSchema = Yup.object().shape({
 });
 
 function AddExpertise() {
-  const { token } = useSelector((state) => state.user.user);
-
   const [status, setStatus] = useState(null);
 
+  const dispatch = useDispatch();
+  const { expertises } = useSelector((state) => state.expertise);
+
+  useEffect(() => {
+    dispatch(fetchExpertises());
+  }, [dispatch]);
+
   const addExpertiseHandle = async (values, helpers) => {
-    try {
-      const res = await axios.post(
-        'http://localhost:3000/api/v1/expertises',
-        values,
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        },
-      );
-      if (res.status === 200) {
-        setStatus('ok');
-        helpers.resetForm();
-      }
-    } catch (error) {
-      setStatus('error');
-    }
-    return status;
+    dispatch(createExpertise(values));
+    setStatus('ok');
+    helpers.resetForm();
+  };
+
+  const deleteHandle = (id) => {
+    dispatch(deleteExpertise(id));
+    return true;
   };
 
   return (
-    <div className="flex items-center justify-center w-full flex-col">
+    <div className="flex items-center mt-10 w-full flex-col">
       <div className="flex mx-auto flex-col">
         {status === 'ok' ? (
           <div className="text-green-400 mb-3">
@@ -89,6 +86,33 @@ function AddExpertise() {
           )}
         </Formik>
       </div>
+      <section className="mt-10">
+        <table className="min-w-full font-light text-sm text-left">
+          <thead className="border-b font-medium">
+            <tr>
+              <th scope="col" className="px-6 py-4">Name</th>
+              <th scope="col" className="px-6 py-4">Icon</th>
+              <th scope="col" className="px-6 py-4">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              expertises.map(({
+                name, icon, description, id,
+              }) => (
+                <tr key={id} className="border-b transition duration-200 ease-in-out hover:bg-neutral-100">
+                  <td>{name}</td>
+                  <td className="w-16 h-16 px-4 py-4"><img src={icon} alt="icon" /></td>
+                  <td>{description}</td>
+                  <td className="px-6 py-4">
+                    <button type="button" onClick={() => deleteHandle(id)} className="bg-red-400 text-white px-4 py-2 rounded-md font-medium hover:bg-red-500">Delete</button>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </section>
     </div>
   );
 }

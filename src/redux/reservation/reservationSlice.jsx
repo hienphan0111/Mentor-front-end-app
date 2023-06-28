@@ -14,24 +14,32 @@ export const fetchreservation = createAsyncThunk(
     const res = await axios.get(url, {
       headers: { Authorization: `Bearer ${accesstoken}` },
     });
-    const reserves = res.data;
+    const reserves = res.data.data;
     return reserves;
   },
 );
 
 export const addreserve = createAsyncThunk(
   'reserves/addreserve',
-  async (reserve) => {
-    await axios.post(url, reserve);
-    return reserve;
+  async (reserve, { getState }) => {
+    const accesstoken = getState().user.user.token;
+    const res = await axios.post(url, reserve, {
+      headers: { Authorization: `Bearer ${accesstoken}` },
+    });
+    const reserves = res.data.data;
+    return reserves;
   },
 );
 
 export const removereservation = createAsyncThunk(
   'books/removebook',
-  async (id) => {
-    await axios.delete(`${url}/${id}`);
-    return id;
+  async (id, { getState }) => {
+    const accesstoken = getState().user.user.token;
+    const res = await axios.delete(`${url}/${id}`, {
+      headers: { Authorization: `Bearer ${accesstoken}` },
+    });
+    const reserves = res.data.data;
+    return reserves;
   },
 );
 
@@ -46,14 +54,16 @@ export const reserveSlice = createSlice({
       return newState;
     });
 
-    builder.addCase(addreserve.fulfilled, (state, action) => {
-      state.reserves.push(action.payload);
-    });
+    builder.addCase(addreserve.fulfilled, (state, action) => ({
+      ...state,
+      reserves: action.payload,
+    }));
     builder.addCase(removereservation.fulfilled, (state, action) => {
-      const newState = { ...state };
-      newState.reservations = state.reservations.filter(
-        (reservation) => reservation.id !== action.payload,
-      );
+      const newState = {
+        ...state,
+        reserves: action.payload,
+      };
+
       return newState;
     });
   },

@@ -65,7 +65,7 @@ export const logout = createAsyncThunk('user/logout', async (arg, { getState }) 
 });
 
 const userLocal = (user) => localStorage.setItem('user', JSON.stringify(user));
-const initUser = JSON.stringify(localStorage.getItem('user')) || {
+const initUser = JSON.parse(localStorage.getItem('user')) || {
   isLogin: false,
   user: '',
   errors: '',

@@ -14,16 +14,16 @@ function Navbar() {
   };
 
   return (
-    <div>
+    <div className="w-[20%] h-[100vh]">
       {isLogin && (
-        <nav className="flex flex-col justify-between h-screen p-5 border border-r-slate-300 shadow-md min-w-fit">
+        <nav className="flex flex-col justify-between h-full p-5 border border-r-slate-300 shadow-md w-full">
           <div>
             <div className="w-10 h-10">
               <img src={logo} alt="logo" />
             </div>
             <ul className="flex flex-col items-start mt-10 text-lg font-bold uppercase w-full">
               <li className="hover:bg-lime-500 w-full hover:text-white py-1 px-2">
-                <Link to="/main">Mentors</Link>
+                <Link to="/mentors">Mentors</Link>
               </li>
               <li className="hover:bg-lime-500 w-full hover:text-white py-1 px-2">
                 <Link to="/my-reservations">My reservations</Link>

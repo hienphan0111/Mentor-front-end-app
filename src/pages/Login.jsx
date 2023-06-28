@@ -15,12 +15,12 @@ function Login() {
   const { isLogin } = useSelector((state) => state.user);
 
   if (isLogin) {
-    return <Navigate replace to="/main" />;
+    return <Navigate replace to="/mentors" />;
   }
 
   const loginHandle = (values) => {
     dispatch(login(values));
-    return <Navigate replace to="/main" />;
+    return <Navigate replace to="/mentors" />;
   };
 
   return (
