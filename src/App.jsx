@@ -6,13 +6,14 @@ import PropTypes from 'prop-types';
 import './App.css';
 import { useSelector } from 'react-redux';
 import Login from './pages/Login';
-import Home from './pages/Home';
+import Mentors from './pages/Mentors';
 import Registration from './pages/Registration';
-import MentorForm from './components/mentor_form';
+import AddMentor from './pages/AddMentor';
 import Welcome from './pages/Welcome';
 import Navbar from './components/Navbar';
 import MyReservations from './pages/MyReservations';
 import AddExpertise from './pages/AddExpertise';
+import DetailMentor from './pages/DetailMentor';
 
 function ProtectRoute({ isLoggedIn, children }) {
   if (!isLoggedIn) {
@@ -35,16 +36,31 @@ function App() {
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/Add-mentor" element={<MentorForm />} />
           <Route path="/registration" element={<Registration />} />
         </Routes>
         <Navbar />
         <Routes>
           <Route
-            path="/main"
+            path="/add-mentor"
             element={(
               <ProtectRoute isLoggedIn={isLogin}>
-                <Home />
+                <AddMentor />
+              </ProtectRoute>
+            )}
+          />
+          <Route
+            path="/mentors"
+            element={(
+              <ProtectRoute isLoggedIn={isLogin}>
+                <Mentors />
+              </ProtectRoute>
+            )}
+          />
+          <Route
+            path="/mentors/:id"
+            element={(
+              <ProtectRoute isLoggedIn={isLogin}>
+                <DetailMentor />
               </ProtectRoute>
             )}
           />

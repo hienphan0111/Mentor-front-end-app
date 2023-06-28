@@ -25,7 +25,7 @@ function Registration() {
   const dispatch = useDispatch();
   const signUp = (values) => {
     dispatch(register(values));
-    return <Navigate replace to="/main" />;
+    return <Navigate replace to="/mentors" />;
   };
 
   return (
