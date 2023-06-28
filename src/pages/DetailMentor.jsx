@@ -1,10 +1,9 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Button } from 'flowbite-react';
-import PropTypes from 'prop-types';
-import Form from '../components/reservation_form';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import { BsCaretLeft } from 'react-icons/bs';
+import MakeReservation from '../components/MakeReservation';
 
 function DetailMentor() {
   const [openModal, setOpenModal] = useState(false);
@@ -12,37 +11,31 @@ function DetailMentor() {
   const { id } = useParams();
   const { mentors } = useSelector((state) => state.mentor);
 
-  const mentor = mentors.find((item) => item.id === Number(id))
-
-  console.log(mentors, id)
-
-  const { user } = useSelector((state) => state.user);
-
-  // useEffect(() => {
-  //   const fetData = async () => {
-  //     const res = await axios.get(
-  //       `http://localhost:3000/api/v1/mentors/${id}`,
-  //       { headers: { Authorization: `Bearer ${user.token}` } },
-  //     );
-  //     setMentor(res.data);
-  //   };
-  //   fetData();
-  // }, [id]);
+  const mentor = mentors.find((item) => item.id === Number(id));
 
   const {
-    name, bio, photo, contact, expertises
+    name, bio, photo, contact, expertises,
   } = mentor;
 
   return (
-    <div className="flex mt-10 py-14 px-24 gap-10 justify-between w-full">
+    <div className="flex mt-10 py-14 px-24 gap-10 justify-between w-full relative">
       <div className="w-[70%]">
         <img src={photo} alt={name} />
       </div>
+      <div className="bg-lime-500 flex justify-center items-center pl-5 text-white text-xl w-16 h-14 rounded-r-full absolute left-0 top-[80%] cursor-pointer">
+        <Link to="/mentors">
+          <BsCaretLeft />
+        </Link>
+      </div>
       <div className="flex flex-col items-end gap-3  w-[15em]">
         <h2 className="text-3xl font-bold">{name}</h2>
-        <p>About mentor: {bio}</p>
+        <p>
+          About mentor:
+          {bio}
+        </p>
+        <p>Expertises: </p>
         {
-          expertises.map((epx) => (<p>{epx.name}</p>))
+          expertises.map((epx) => (<p key={epx.id}>{epx.name}</p>))
         }
         <p>
           Contact:
@@ -70,7 +63,7 @@ function DetailMentor() {
                   </button>
                 </div>
                 <div className="relative p-6 flex-auto">
-                  <Form />
+                  <MakeReservation mentor={mentor} />
                 </div>
                 <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
                   <button

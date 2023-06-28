@@ -10,9 +10,8 @@ export const createMentor = createAsyncThunk(
     const res = await axios.post(`${API_URL}/api/v1/mentors`, mentor, {
       headers: { Authorization: `Bearer ${token}` },
     });
-    console.log(res.data);
     return res.data;
-  }
+  },
 );
 
 export const fetchMentors = createAsyncThunk(
@@ -23,7 +22,7 @@ export const fetchMentors = createAsyncThunk(
       headers: { Authorization: `Bearer ${token}` },
     });
     return res.data;
-  }
+  },
 );
 
 export const deleteMentor = createAsyncThunk(
@@ -34,13 +33,13 @@ export const deleteMentor = createAsyncThunk(
       headers: { Authorization: `Bearer ${token}` },
     });
     return res.data;
-  }
+  },
 );
 const mentorInit = {
   status: 'idle',
   mentors: [],
   errors: '',
-}
+};
 
 const mentorSlice = createSlice({
   name: 'mentor',
@@ -48,20 +47,16 @@ const mentorSlice = createSlice({
   reducers: {},
   extraReducers(builder) {
     builder
-    .addCase(fetchMentors.fulfilled, (state, action) => {
-      return {
+      .addCase(fetchMentors.fulfilled, (state, action) => ({
         status: 'idle',
         mentors: action.payload,
-        errors: ''
-      }
-    })
-    .addCase(createMentor.fulfilled, (state, action) => {
-      return {
+        errors: '',
+      }))
+      .addCase(createMentor.fulfilled, (state, action) => ({
         ...state,
         mentors: action.payload,
-      }
-    })
-  }
+      }));
+  },
 });
 
 export default mentorSlice.reducer;

@@ -2,7 +2,7 @@ import {
   Formik, Form, Field, ErrorMessage,
 } from 'formik';
 import * as Yup from 'yup';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { register } from '../redux/userSlice/userSlice';
 
@@ -23,9 +23,10 @@ const SignupSchema = Yup.object().shape({
 
 function Registration() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const signUp = (values) => {
     dispatch(register(values));
-    return <Navigate replace to="/mentors" />;
+    navigate('/mentors');
   };
 
   return (

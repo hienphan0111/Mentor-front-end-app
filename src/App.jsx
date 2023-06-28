@@ -38,7 +38,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/registration" element={<Registration />} />
         </Routes>
-        <Navbar />
+        { isLogin && <Navbar /> }
         <Routes>
           <Route
             path="/add-mentor"

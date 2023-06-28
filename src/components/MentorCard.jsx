@@ -1,9 +1,11 @@
 import { FaTwitter, FaInstagram, FaMediumM } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const MentorCard = ({ mentor }) => {
-
-  const { id, name, bio, photo, contact } = mentor;
+  const {
+    id, name, bio, photo,
+  } = mentor;
 
   return (
     <div className="flex flex-col items-center mx-auto w-[300px] gap-10">
@@ -12,8 +14,8 @@ const MentorCard = ({ mentor }) => {
           <img src={photo} alt="image_profile" className="object-fill rounded-full" />
         </Link>
       </div>
-      <div className='flex flex-col items-center gap-4'>
-        <div className="flex flex-col items-center divide-y-2 divide-dashed w-[70%]" >
+      <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center divide-y-2 divide-dashed w-[70%]">
           <h1 className="uppercase font-bold text-lg">{name}</h1>
           <hr className="divide-dashed" />
         </div>
@@ -35,7 +37,25 @@ const MentorCard = ({ mentor }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MentorCard
+MentorCard.propTypes = {
+  mentor: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    bio: PropTypes.string,
+    photo: PropTypes.string,
+  }),
+};
+
+MentorCard.defaultProps = {
+  mentor: {
+    id: 0,
+    name: '',
+    bio: '',
+    photo: '',
+  },
+};
+
+export default MentorCard;

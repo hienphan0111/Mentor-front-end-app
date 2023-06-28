@@ -3,7 +3,6 @@ import {
 } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { createExpertise, deleteExpertise, fetchExpertises } from '../redux/expertise/expertiseSlice';
 
@@ -16,8 +15,6 @@ const expertiseSchema = Yup.object().shape({
 });
 
 function AddExpertise() {
-  const { token } = useSelector((state) => state.user.user);
-
   const [status, setStatus] = useState(null);
 
   const dispatch = useDispatch();
@@ -28,16 +25,15 @@ function AddExpertise() {
   }, [dispatch]);
 
   const addExpertiseHandle = async (values, helpers) => {
-      dispatch(createExpertise(values));
-      setStatus('ok');
-      helpers.resetForm();
-      return;
+    dispatch(createExpertise(values));
+    setStatus('ok');
+    helpers.resetForm();
   };
 
   const deleteHandle = (id) => {
     dispatch(deleteExpertise(id));
     return true;
-  }
+  };
 
   return (
     <div className="flex items-center mt-10 w-full flex-col">
@@ -97,15 +93,16 @@ function AddExpertise() {
               <th scope="col" className="px-6 py-4">Name</th>
               <th scope="col" className="px-6 py-4">Icon</th>
               <th scope="col" className="px-6 py-4">Description</th>
-              <td></td>
             </tr>
           </thead>
           <tbody>
             {
-              expertises.map(({ name, icon, description, id }) => (
+              expertises.map(({
+                name, icon, description, id,
+              }) => (
                 <tr key={id} className="border-b transition duration-200 ease-in-out hover:bg-neutral-100">
                   <td>{name}</td>
-                  <td className="w-16 h-16 px-4 py-4"><img src={icon} /></td>
+                  <td className="w-16 h-16 px-4 py-4"><img src={icon} alt="icon" /></td>
                   <td>{description}</td>
                   <td className="px-6 py-4">
                     <button type="button" onClick={() => deleteHandle(id)} className="bg-red-400 text-white px-4 py-2 rounded-md font-medium hover:bg-red-500">Delete</button>
