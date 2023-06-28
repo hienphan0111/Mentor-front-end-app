@@ -123,7 +123,7 @@ The project was deployed which you can access this link:
 
 ## 👥 Authors <a name="authors"></a>
 
-1. Hien Phan
+👤 **Hien Phan**
 - GitHub: [@hienphan0111](https://github.com/hienphan0111)
 - Twitter: [@hienphan0111](https://twitter.com/twitterhandle)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/hien-phan-61097b256/)
@@ -133,6 +133,13 @@ The project was deployed which you can access this link:
 - GitHub: [@githubhandle](https://github.com/hakichris)
 - Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
 - LinkedIn: [@LinkedInhandle](https://linkedin.com/in/hakichris)
+
+
+👤 **Donald Akite**
+
+- GitHub: [@githubhandle](https://github.com/quavo19)
+- Twitter: [@twitterhandle](https://twitter.com/DonaldAkite)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/donald-akite-299a31222/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
