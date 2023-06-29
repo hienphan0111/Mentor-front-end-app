@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <img src="" alt="logo" width="140"  height="auto" />
+  <img src="./public/mentor.png" alt="logo" width="140"  height="auto" />
   <br/>
 
   <h3><b>Mentor front end app</b></h3>
@@ -36,6 +36,7 @@
 # 📖 Mentor app <a name="about-project"></a>
 
 This App allow users book reservations with their mentors.
+This repo host front-end app. [Click here](https://github.com/hakichris/mentor-back-end) to access the back-end app
 
 ## 🔭 Features <a name="features"></a>
 - [ ] **Sign in && Sigup**
@@ -48,7 +49,7 @@ This App allow users book reservations with their mentors.
 
 * [![React][React.js]][React-url]
 * [![Redux][redux.js]][Redux-url]
-* [![TailwindCSS][tailwindcss.com]]
+* [![TailwindCSS][TailwindCSS][tailwind-url]]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -239,3 +240,5 @@ This project is contributed under [GNU 3.0](./LICENSE.md) and [Creative commons]
 [React-url]: https://reactjs.org/
 [Redux.js]: https://img.shields.io/badge/-Redux-20232A?style=for-the-badge&logo=redux&logoColor=violet
 [Redux-url]: http://redux.js.org
+[TailwindCSS]: https://img.shields.io/badge/-TailwindCSS-20232A?style=for-the-badge&logo=tailwind&logoColor=61DAFB
+[Tailwind-url]: http://tailwind.org
