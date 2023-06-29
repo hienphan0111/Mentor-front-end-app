@@ -5,7 +5,7 @@ import { useParams, Link } from 'react-router-dom';
 import { BsCaretLeft } from 'react-icons/bs';
 import MakeReservation from '../components/MakeReservation';
 
-function DetailMentor() {
+const DetailMentor = () => {
   const [openModal, setOpenModal] = useState(false);
 
   const { id } = useParams();
@@ -82,13 +82,5 @@ function DetailMentor() {
     </div>
   );
 }
-
-// DetailMentor.propTypes = {
-//   id: PropTypes.number,
-// };
-
-// DetailMentor.defaultProps = {
-//   id: 1,
-// };
 
 export default DetailMentor;

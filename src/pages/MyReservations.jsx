@@ -4,7 +4,7 @@ import { Button } from 'flowbite-react';
 import { fetchreservation, removereservation } from '../redux/reservation/reservationSlice';
 import MakeReservation from '../components/MakeReservation';
 
-function MyReservations() {
+const MyReservations = () => {
   const { reserves } = useSelector((state) => state.reservation);
   const [openModal, setOpenModal] = useState(false);
 

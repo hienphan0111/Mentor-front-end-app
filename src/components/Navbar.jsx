@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../../public/mentor.png';
+import logo from '../assets/image/mentor.png';
 import { logout } from '../redux/userSlice/userSlice';
 
-function Navbar() {
+const Navbar = () => {
   const { user, isLogin } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();

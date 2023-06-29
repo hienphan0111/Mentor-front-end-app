@@ -3,7 +3,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import { FaMediumM, FaTwitter, FaInstagram } from 'react-icons/fa';
 
-function Mentor() {
+const Mentor = () => {
 //  function Mentor({ mentor }) {
   return (
     <li
@@ -47,12 +47,3 @@ function Mentor() {
 }
 
 export default Mentor;
-
-// Mentor.propTypes = {
-//   mentor: PropTypes.shape({
-//     model: PropTypes.string.isRequired,
-//     description: PropTypes.string.isRequired,
-//     image_url: PropTypes.string.isRequired,
-//     mentor_id: PropTypes.number.isRequired,
-//   }).isRequired,
-// };

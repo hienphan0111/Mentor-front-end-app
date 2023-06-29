@@ -14,7 +14,7 @@ const expertiseSchema = Yup.object().shape({
   icon: Yup.string().required('Icon is required'),
 });
 
-function AddExpertise() {
+const AddExpertise = () => {
   const [status, setStatus] = useState(null);
 
   const dispatch = useDispatch();

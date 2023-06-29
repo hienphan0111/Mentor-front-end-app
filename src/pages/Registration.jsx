@@ -21,7 +21,7 @@ const SignupSchema = Yup.object().shape({
   acceptTerms: Yup.bool().oneOf([true], 'Accept Terms is required'),
 });
 
-function Registration() {
+const Registration = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const signUp = (values) => {
@@ -73,7 +73,7 @@ function Registration() {
               </div>
               <div className="flex flex-col gap-3">
                 <button type="submit" className="rounded-md bg-indigo-500 py-2 text-slate-100 hover:bg-indigo-300"> Register</button>
-                <Link href="/login" className="rounded-md bg-sky-600 py-2 text-slate-100">Have account? Sign In</Link>
+                <Link to="/login" className="rounded-md bg-sky-600 py-2 text-slate-100">Have account? Sign In</Link>
               </div>
             </Form>
           )}

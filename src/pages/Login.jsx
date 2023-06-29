@@ -9,7 +9,7 @@ const LoginSchema = Yup.object().shape({
   password: Yup.string().required('Password is required'),
 });
 
-function Login() {
+const Login = () => {
   const dispatch = useDispatch();
 
   const { isLogin } = useSelector((state) => state.user);
@@ -43,7 +43,7 @@ function Login() {
                   Log In
                 </button>
                 <Link
-                  href="/register"
+                  to="/registration"
                   className="bg-emerald-700 text-white hover:bg-emerald-500 rounded-md py-2 px-2"
                 >
                   Do not have account? Register

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import bg2 from '../assets/image/bg-2.png';
 
-function Welcome() {
+const Welcome = () => {
   return (
     <div className="bg-gradient-to-t from-[#a18cd1] to-[#fbc2eb] w-screen h-screen flex">
       <div className="w-screen h-full relative flex flex-col justify-center items-center">

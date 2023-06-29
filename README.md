@@ -42,6 +42,7 @@ This App allow users book reservations with their mentors.
 - [ ] **Book reservation**
 - [ ] **Show their reservations**
 - [ ] **Delete their reservations**
+- [ ] **Admin features**
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -84,6 +85,45 @@ cd mentor-front-end-app
 yarn
 ```
 
+4. Get Client_id and Client_Secret
+
+- Clone back-end api 
+```bash
+git clone https://github.com/hakichris/mentor-back-end.git
+```
+- Run
+```bash
+bundle install
+```
+
+- Run command below to create client_id and secret on your local database
+```bash
+rails console
+```
+- Then create an OAuth application using this command :
+```bash
+oauth = Doorkeeper::Application.create(name: "Web client", redirect_uri: "", scopes: "")
+```
+- You can change the name to any name you want, and leave redirect_uri and scopes blank.
+
+- Then run below command to get client_id
+```bash
+oauth.uid
+```
+
+- Get client_secret by below command
+```bash
+oauth.secret
+```
+
+- Finnaly, create .env file in the root folder with content:
+```bash
+VITE_CLIENT_ID=client_id
+VITE_CLIENT_SECRET=client_secret
+```
+replace client_id and client_secret with info that you got above
+
+- 
 ### Usage
 
 To run the project, execute the following command:

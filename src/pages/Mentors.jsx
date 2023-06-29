@@ -4,16 +4,17 @@ import { BsCaretLeft, BsCaretRight } from 'react-icons/bs';
 import { fetchMentors } from '../redux/mentor/mentorSlice';
 import MentorCard from '../components/MentorCard';
 
-function Mentors() {
+const Mentors = () => {
   const dispatch = useDispatch();
   const { mentors } = useSelector((state) => state.mentor);
+  const [mentorsSlide, setMentorsSlide] = useState(mentors.slice(0, 3));
 
   useEffect(() => {
     dispatch(fetchMentors());
+    setMentorsSlide(mentors.slice(0,3))
   }, [dispatch]);
 
   const [keyIndex, setKeyIndex] = useState(0);
-  const [mentorsSlide, setMentorsSlide] = useState(mentors.slice(0, 3));
 
   const nextSlide = () => {
     if (keyIndex < mentors.length - 3) {
@@ -42,11 +43,11 @@ function Mentors() {
             mentorsSlide.map((mentor) => (
               <MentorCard key={mentor.id} mentor={mentor} />
             ))
-}
+          }
         </div>
         {
           keyIndex < mentors.length - 3 ? (
-            <div className="bg-lime-500 flex justify-center items-center pr-5 text-white text-xl w-16 h-14 rounded-l-full absolute right-0 top-[50%] cursor-pointer">
+            <div className="bg-lime-500 flex justify-center transition duration-300 ease-linear items-center pr-5 text-white text-xl w-16 h-14 rounded-l-full absolute right-0 top-[50%] cursor-pointer">
               <button type="button" onClick={nextSlide}>
                 <BsCaretRight />
               </button>

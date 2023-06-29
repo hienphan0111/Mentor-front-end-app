@@ -15,7 +15,7 @@ import MyReservations from './pages/MyReservations';
 import AddExpertise from './pages/AddExpertise';
 import DetailMentor from './pages/DetailMentor';
 
-function ProtectRoute({ isLoggedIn, children }) {
+const ProtectRoute = ({ isLoggedIn, children }) => {
   if (!isLoggedIn) {
     return <Navigate to="/login" replace />;
   }
@@ -24,10 +24,10 @@ function ProtectRoute({ isLoggedIn, children }) {
 
 ProtectRoute.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
-  children: PropTypes.instanceOf(ReactDOM).isRequired,
+  children: PropTypes.element.isRequired,
 };
 
-function App() {
+const App = () => {
   const { isLogin } = useSelector((state) => state.user);
 
   return (

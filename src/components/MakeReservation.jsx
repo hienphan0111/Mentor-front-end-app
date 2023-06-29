@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 import { addreserve } from '../redux/reservation/reservationSlice';
 import CSelect from './CSelect';
 
-function DateTimePickerValue() {
+const DateTimePickerValue = () => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DateTimePicker
@@ -21,7 +21,7 @@ function DateTimePickerValue() {
   );
 }
 
-function MakeReservation({ mentor }) {
+const MakeReservation = ({ mentor }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
