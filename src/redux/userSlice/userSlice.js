@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const API_URL = 'http://localhost:3000';
+const API_URL = import.meta.env.API_URL;
 
 export const register = createAsyncThunk(
   'user/register',
@@ -12,7 +12,7 @@ export const register = createAsyncThunk(
       email: user.email,
       password: user.password,
       password_confirmation: user.confirmPassword,
-      client_id: import.meta.env.VITE_CLIENT_ID,
+      client_id: import.meta.env.VITE_PRODUCTION_CLIENT_ID,
     };
     const res = await axios.post(`${API_URL}/api/v1/users`, data);
     return {
@@ -29,8 +29,8 @@ export const login = createAsyncThunk('user/login', async (user) => {
     grant_type: 'password',
     email: user.email,
     password: user.password,
-    client_id: import.meta.env.VITE_CLIENT_ID,
-    client_secret: import.meta.env.VITE_CLIENT_SECRET,
+    client_id: import.meta.env.VITE_PRODUCTION_CLIENT_ID,
+    client_secret: import.meta.env.VITE_PRODUCTION_CLIENT_SECRET,
   };
   const res = await axios.post(`${API_URL}/oauth/token`, data);
 
@@ -56,8 +56,8 @@ export const login = createAsyncThunk('user/login', async (user) => {
 export const logout = createAsyncThunk('user/logout', async (arg, { getState }) => {
   const data = {
     token: getState().user.user.token,
-    client_id: import.meta.env.VITE_CLIENT_ID,
-    client_secret: import.meta.env.VITE_CLIENT_SECRET,
+    client_id: import.meta.env.VITE_PRODUCTION_CLIENT_ID,
+    client_secret: import.meta.env.VITE_PRODUCTION_CLIENT_SECRET,
   };
 
   await axios.post(`${API_URL}/oauth/revoke`, data);
