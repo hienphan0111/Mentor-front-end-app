@@ -115,6 +115,6 @@ const AddExpertise = () => {
       </section>
     </div>
   );
-}
+};
 
 export default AddExpertise;

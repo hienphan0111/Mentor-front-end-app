@@ -81,6 +81,6 @@ const DetailMentor = () => {
       </div>
     </div>
   );
-}
+};
 
 export default DetailMentor;

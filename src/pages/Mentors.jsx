@@ -11,7 +11,6 @@ const Mentors = () => {
 
   useEffect(() => {
     dispatch(fetchMentors());
-    setMentorsSlide(mentors.slice(0,3))
   }, [dispatch]);
 
   const [keyIndex, setKeyIndex] = useState(0);
@@ -66,6 +65,6 @@ const Mentors = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Mentors;

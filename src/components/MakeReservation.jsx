@@ -10,16 +10,14 @@ import { useNavigate } from 'react-router-dom';
 import { addreserve } from '../redux/reservation/reservationSlice';
 import CSelect from './CSelect';
 
-const DateTimePickerValue = () => {
-  return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DateTimePicker
-        label="Select date time to book reservation"
-        defaultValue={dayjs('2022-04-17T15:30')}
-      />
-    </LocalizationProvider>
-  );
-}
+const DateTimePickerValue = () => (
+  <LocalizationProvider dateAdapter={AdapterDayjs}>
+    <DateTimePicker
+      label="Select date time to book reservation"
+      defaultValue={dayjs('2022-04-17T15:30')}
+    />
+  </LocalizationProvider>
+);
 
 const MakeReservation = ({ mentor }) => {
   const dispatch = useDispatch();
@@ -95,7 +93,7 @@ const MakeReservation = ({ mentor }) => {
       </Formik>
     </div>
   );
-}
+};
 
 MakeReservation.propTypes = {
   mentor: PropTypes.instanceOf(Object),

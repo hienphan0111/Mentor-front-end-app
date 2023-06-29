@@ -1,7 +1,6 @@
 import {
   BrowserRouter, Routes, Route, Navigate,
 } from 'react-router-dom';
-import { ReactDOM } from 'react';
 import PropTypes from 'prop-types';
 import './App.css';
 import { useSelector } from 'react-redux';
@@ -20,7 +19,7 @@ const ProtectRoute = ({ isLoggedIn, children }) => {
     return <Navigate to="/login" replace />;
   }
   return children;
-}
+};
 
 ProtectRoute.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
@@ -84,6 +83,6 @@ const App = () => {
       </div>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
