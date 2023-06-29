@@ -37,16 +37,23 @@ const Mentors = () => {
       </div>
       <hr className="w-[150px] mb-10" />
       <div className="relative w-full">
-        <div className="flex h-max-[50%] m-10">
+        <div className="hidden md:flex h-max-[50%] m-10">
           {
             mentorsSlide.map((mentor) => (
               <MentorCard key={mentor.id} mentor={mentor} />
             ))
           }
         </div>
+        <div className="flex flex-col h-max-[50%] m-10 md:hidden">
+          {
+            mentors.map((mentor) => (
+              <MentorCard key={mentor.id} mentor={mentor} />
+            ))
+          }
+        </div>
         {
           keyIndex < mentors.length - 3 ? (
-            <div className="bg-lime-500 flex justify-center transition duration-300 ease-linear items-center pr-5 text-white text-xl w-16 h-14 rounded-l-full absolute right-0 top-[50%] cursor-pointer">
+            <div className="bg-lime-500 hidden md:flex justify-center transition duration-300 ease-linear items-center pr-5 text-white text-xl w-16 h-14 rounded-l-full absolute right-0 top-[50%] cursor-pointer">
               <button type="button" onClick={nextSlide}>
                 <BsCaretRight />
               </button>
@@ -55,7 +62,7 @@ const Mentors = () => {
         }
         {
           keyIndex === 0 ? null : (
-            <div className="bg-lime-500 flex justify-center items-center pl-5 text-white text-xl w-16 h-14 rounded-r-full absolute left-0 top-[50%] cursor-pointer">
+            <div className="bg-lime-500 hidden md:flex justify-center items-center pl-5 text-white text-xl w-16 h-14 rounded-r-full absolute left-0 top-[50%] cursor-pointer">
               <button type="button" onClick={prevSlide}>
                 <BsCaretLeft />
               </button>

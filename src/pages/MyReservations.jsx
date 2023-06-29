@@ -72,7 +72,7 @@ const MyReservations = () => {
                   <th scope="col" className="px-6 py-4">ID</th>
                   <th scope="col" className="px-6 py-4">Mentor</th>
                   <th scope="col" className="px-6 py-4">Time</th>
-                  <th scope="col" className="px-6 py-4">Message</th>
+                  <th scope="col" className="px-6 py-4 hidden md:block">Message</th>
                   <th scope="col" className="px-6 py-4">Cancel</th>
                 </tr>
               </thead>
@@ -85,7 +85,7 @@ const MyReservations = () => {
                       <td className="flex px-4 items-center py-5">{id}</td>
                       <td className="w-16 h-16 px-4 py-4">{mentor.name}</td>
                       <td>{time}</td>
-                      <td>{message}</td>
+                      <td className="hidden md:block">{message}</td>
                       <td className="px-6 py-4">
                         <button type="button" onClick={() => deleteHandle(id)} className="bg-red-400 text-white px-4 py-2 rounded-md font-medium hover:bg-red-500">Cancel</button>
                       </td>

@@ -24,7 +24,7 @@ const AddMentor = () => {
         <table className="min-w-full font-light text-sm text-left">
           <thead className="border-b font-medium">
             <tr>
-              <th scope="col" className="px-6 py-4">
+              <th scope="col" className="px-6 py-4 hidden md:block">
                 Photo
               </th>
               <th scope="col" className="px-6 py-4">
@@ -49,7 +49,7 @@ const AddMentor = () => {
                 key={id}
                 className="border-b transition duration-200 ease-in-out hover:bg-neutral-100"
               >
-                <td className="w-16 h-16 px-4 py-4">
+                <td className="w-16 h-16 px-4 py-4 hidden md:block">
                   <img src={photo} alt="profile" />
                 </td>
                 <td className="w-16 h-16 px-4 py-4">{name}</td>

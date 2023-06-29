@@ -18,7 +18,7 @@ const DetailMentor = () => {
   } = mentor;
 
   return (
-    <div className="flex mt-10 py-14 px-24 gap-10 justify-between w-full relative">
+    <div className="flex flex-col items-center md:flex-row mt-10 py-14 px-24 gap-10 justify-between w-full relative">
       <div className="w-[70%]">
         <img src={photo} alt={name} />
       </div>
