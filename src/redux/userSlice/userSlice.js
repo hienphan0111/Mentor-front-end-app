@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const API_URL = import.meta.env.API_URL;
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const register = createAsyncThunk(
   'user/register',

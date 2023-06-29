@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const url = `${import.meta.env.API_URL}/api/v1/reservations`;
+const url = `${import.meta.env.VITE_API_URL}/api/v1/reservations`;
 const initialState = {
   reserves: [],
   status: 'idle',
