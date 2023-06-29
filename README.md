@@ -166,12 +166,6 @@ Example command:
 ```
 --->
 
-### Deployment
-
-The project was deployed which you can access this link: 
-- [Live Demo Link](https://budget-app-l98w.onrender.com)
-
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
