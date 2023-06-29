@@ -42,6 +42,7 @@ This App allow users book reservations with their mentors.
 - [ ] **Book reservation**
 - [ ] **Show their reservations**
 - [ ] **Delete their reservations**
+- [ ] **Admin features**
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -52,7 +53,7 @@ This App allow users book reservations with their mentors.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-To see the demo version, you can <a href=""> Click here </a>
+To see the demo version, you can <a href=""> - [Clik here](https://mentor-app.onrender.com/) </a>
 
 <!-- GETTING STARTED -->
 
@@ -84,6 +85,45 @@ cd mentor-front-end-app
 yarn
 ```
 
+4. Get Client_id and Client_Secret
+
+- Clone back-end api 
+```bash
+git clone https://github.com/hakichris/mentor-back-end.git
+```
+- Run
+```bash
+bundle install
+```
+
+- Run command below to create client_id and secret on your local database
+```bash
+rails console
+```
+- Then create an OAuth application using this command :
+```bash
+oauth = Doorkeeper::Application.create(name: "Web client", redirect_uri: "", scopes: "")
+```
+- You can change the name to any name you want, and leave redirect_uri and scopes blank.
+
+- Then run below command to get client_id
+```bash
+oauth.uid
+```
+
+- Get client_secret by below command
+```bash
+oauth.secret
+```
+
+- Finnaly, create .env file in the root folder with content:
+```bash
+VITE_CLIENT_ID=client_id
+VITE_CLIENT_SECRET=client_secret
+```
+replace client_id and client_secret with info that you got above
+
+- 
 ### Usage
 
 To run the project, execute the following command:
@@ -114,6 +154,7 @@ Example command:
 ### Deployment
 
 The project was deployed which you can access this link: 
+- [Live Demo Link](https://budget-app-l98w.onrender.com)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -122,10 +163,23 @@ The project was deployed which you can access this link:
 
 ## 👥 Authors <a name="authors"></a>
 
-1. Hien Phan
+👤 **Hien Phan**
 - GitHub: [@hienphan0111](https://github.com/hienphan0111)
 - Twitter: [@hienphan0111](https://twitter.com/twitterhandle)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/hien-phan-61097b256/)
+
+👤 **Christian Hakizimana**
+
+- GitHub: [@githubhandle](https://github.com/hakichris)
+- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
+- LinkedIn: [@LinkedInhandle](https://linkedin.com/in/hakichris)
+
+
+👤 **Donald Akite**
+
+- GitHub: [@githubhandle](https://github.com/quavo19)
+- Twitter: [@twitterhandle](https://twitter.com/DonaldAkite)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/donald-akite-299a31222/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
