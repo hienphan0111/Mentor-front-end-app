@@ -53,7 +53,12 @@ This App allow users book reservations with their mentors.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-To see the demo version, you can <a href=""> - [Clik here](https://mentor-app.onrender.com/) </a>
+To see the demo version, you can <a href=""> - [Clik here](https://mentor-app-qxn4.onrender.com) </a>
+- Want to try admin features, use below account:
+```bash
+username: admin@admin.com
+password: 123456
+```
 
 <!-- GETTING STARTED -->
 
@@ -123,7 +128,16 @@ VITE_CLIENT_SECRET=client_secret
 ```
 replace client_id and client_secret with info that you got above
 
-- 
+- To use admin features, you can create an account on front end then run `rails console`
+- Find the user that you just created and set isAdmin to true, example:
+```bash
+user = User.find_by(email: "email@email.com")
+user.isAdmin = true
+user.save
+```
+- Comeback your front end and login again
+- The Admin features should appear on your side bar.
+
 ### Usage
 
 To run the project, execute the following command:
