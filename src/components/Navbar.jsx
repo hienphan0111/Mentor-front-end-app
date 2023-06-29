@@ -1,20 +1,22 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../assets/image/mentor.png';
-import { logout } from '../redux/userSlice/userSlice';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import PropTypes from 'prop-types';
+import { logout } from '../redux/userSlice/userSlice';
+import logo from '../assets/image/mentor.png';
+
+/* eslint-disable react/jsx-props-no-spreading */
 
 const MenuPopupState = ({ logoutHandle, isAdmin }) => (
   <PopupState variant="popover" popupId="demo-popup-menu">
     {(popupState) => (
-      <React.Fragment>
+      <>
         <Button variant="contained" {...bindTrigger(popupState)}>
-          <GiHamburgerMenu style={{ width: '24px', height: '28px'}} />
+          <GiHamburgerMenu style={{ width: '24px', height: '28px' }} />
         </Button>
         <Menu {...bindMenu(popupState)}>
           <MenuItem onClick={popupState.close}><Link to="/mentors">Mentors</Link></MenuItem>
@@ -37,10 +39,20 @@ const MenuPopupState = ({ logoutHandle, isAdmin }) => (
             )
           }
         </Menu>
-      </React.Fragment>
+      </>
     )}
   </PopupState>
 );
+
+MenuPopupState.propTypes = {
+  logoutHandle: PropTypes.func,
+  isAdmin: PropTypes.bool,
+};
+
+MenuPopupState.defaultProps = {
+  logoutHandle: () => null,
+  isAdmin: false,
+};
 
 const Navbar = () => {
   const { user, isLogin } = useSelector((state) => state.user);
@@ -88,7 +100,7 @@ const Navbar = () => {
         </nav>
       )}
       <div className="md:hidden absolute top-5 left-5">
-        <MenuPopupState logoutHandle={logoutHandle} isAdmin={user.isAdmin}/>
+        <MenuPopupState logoutHandle={logoutHandle} isAdmin={user.isAdmin} />
       </div>
     </div>
   );
