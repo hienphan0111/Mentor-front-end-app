@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <img src="" alt="logo" width="140"  height="auto" />
+  <img src="./public/mentor.png" alt="logo" width="140"  height="auto" />
   <br/>
 
   <h3><b>Mentor front end app</b></h3>
@@ -14,8 +14,9 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
-  - [🛠 Built With](#features) 
-  - [🛠 Built With](#built-with)  
+  - [🛠 Features](#features)
+  - [🛠 Built With](#built-with)
+  - [🛠 Kanban board](#kanban-board)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
@@ -36,6 +37,7 @@
 # 📖 Mentor app <a name="about-project"></a>
 
 This App allow users book reservations with their mentors.
+This repo host front-end app. [Click here](https://github.com/hakichris/mentor-back-end) to access the back-end app
 
 ## 🔭 Features <a name="features"></a>
 - [ ] **Sign in && Sigup**
@@ -48,12 +50,33 @@ This App allow users book reservations with their mentors.
 
 * [![React][React.js]][React-url]
 * [![Redux][redux.js]][Redux-url]
-* [![TailwindCSS][tailwindcss.com]]
+* [![TailwindCSS][TailwindCSS][tailwind-url]]
+
+## 🛠 Kanban board <a name="kanban-board"></a>
+
+For management this project, we setup kanban board in which we split project into a bundle of tasks and balanced for all team members. [Click here](https://github.com/hienphan0111/Mentor-front-end-app/projects/1) to overview this kanban board.
+- Screen shots of Kanban board:
+  - Init project:
+  <div align="center">
+    <img src="./public/Screenshot-init.png" alt="logo" width="auto"  height="250" />
+  <div>
+  <br />
+  - Final status:
+  <div align="center">
+    <img src="./public/Screenshot-final.png" alt="logo" width="auto"  height="250" />
+  <div>
+
+- All members have completed their tasks on time.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-To see the demo version, you can <a href=""> - [Clik here](https://mentor-app.onrender.com/) </a>
+To see the demo version, you can <a href=""> - [Clik here](https://mentor-app-qxn4.onrender.com) </a>
+- Want to try admin features, use below account:
+```bash
+username: admin@admin.com
+password: 123456
+```
 
 <!-- GETTING STARTED -->
 
@@ -123,7 +146,16 @@ VITE_CLIENT_SECRET=client_secret
 ```
 replace client_id and client_secret with info that you got above
 
-- 
+- To use admin features, you can create an account on front end then run `rails console`
+- Find the user that you just created and set isAdmin to true, example:
+```bash
+user = User.find_by(email: "email@email.com")
+user.isAdmin = true
+user.save
+```
+- Comeback your front end and login again
+- The Admin features should appear on your side bar.
+
 ### Usage
 
 To run the project, execute the following command:
@@ -150,12 +182,6 @@ Example command:
   bin/rails test test/models/article_test.rb
 ```
 --->
-
-### Deployment
-
-The project was deployed which you can access this link: 
-- [Live Demo Link](https://budget-app-l98w.onrender.com)
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -225,3 +251,5 @@ This project is contributed under [GNU 3.0](./LICENSE.md) and [Creative commons]
 [React-url]: https://reactjs.org/
 [Redux.js]: https://img.shields.io/badge/-Redux-20232A?style=for-the-badge&logo=redux&logoColor=violet
 [Redux-url]: http://redux.js.org
+[TailwindCSS]: https://img.shields.io/badge/-TailwindCSS-20232A?style=for-the-badge&logo=tailwind&logoColor=61DAFB
+[Tailwind-url]: http://tailwind.org
