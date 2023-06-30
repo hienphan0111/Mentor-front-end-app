@@ -14,8 +14,9 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
-  - [🛠 Built With](#features) 
-  - [🛠 Built With](#built-with)  
+  - [🛠 Features](#features)
+  - [🛠 Built With](#built-with)
+  - [🛠 Kanban board](#kanban-board)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
@@ -50,6 +51,22 @@ This repo host front-end app. [Click here](https://github.com/hakichris/mentor-b
 * [![React][React.js]][React-url]
 * [![Redux][redux.js]][Redux-url]
 * [![TailwindCSS][TailwindCSS][tailwind-url]]
+
+## 🛠 Kanban board <a name="kanban-board"></a>
+
+For management this project, we setup kanban board in which we split project into a bundle of tasks and balanced for all team members. [Click here](https://github.com/hienphan0111/Mentor-front-end-app/projects/1) to overview this kanban board.
+- Screen shots of Kanban board:
+  - Init project:
+  <div align="center">
+    <img src="./public/Screenshot-init.png" alt="logo" width="auto"  height="250" />
+  <div>
+  <br />
+  - Final status:
+  <div align="center">
+    <img src="./public/Screenshot-final.png" alt="logo" width="auto"  height="250" />
+  <div>
+
+- All members have completed their tasks on time.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
