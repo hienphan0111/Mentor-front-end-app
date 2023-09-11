@@ -74,7 +74,7 @@ For management this project, we setup kanban board in which we split project int
 To see the demo version, you can <a href=""> - [Clik here](https://mentor-app-qxn4.onrender.com) </a>
 - Want to try admin features, use below account:
 ```bash
-username: admin@admin.com
+username: admin@gmail.com
 password: 123456
 ```
 
